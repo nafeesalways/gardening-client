@@ -11,6 +11,7 @@ Welcome to the **Gardening Community & Resource Hub** — a full-featured platfo
 ---
 
 ## 📌 Features
+![Gardening Hub Screenshot](https://img.freepik.com/free-photo/male-hands-cutting-bushes-with-big-scissors_651396-1549.jpg?ga=GA1.1.1744511623.1749385980&semt=ais_items_boosted&w=740)
 
 - 👨‍🌾 **Explore Gardeners**: Discover gardeners from around the world and explore their profiles, interests, and gardening experiences.
 - 📘 **Gardening Tips**: Browse categorized tips on planting, watering, soil health, pest control, and more.

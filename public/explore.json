@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Alice Smith",
+    "imageUrl": "https://img.freepik.com/premium-photo/indian-gardener-farmer-with-box-garden-tools_380164-259481.jpg?ga=GA1.1.110764215.1723834094&semt=ais_hybrid&w=740",
+    "age": 34,
+    "gender": "Male",
+    "status": "Active",
+    "experience": 6,
+    "totalTips": 42
+  },
+  {
+    "name": "Bob Johnson",
+    "imageUrl": "https://img.freepik.com/free-photo/young-bearded-gardener-man-wearing-jumpsuit-hat-holding-hedge-clippers-potted-plant-smiling-cheerfully_141793-37574.jpg?ga=GA1.1.110764215.1723834094&semt=ais_hybrid&w=740",
+    "age": 41,
+    "gender": "Male",
+    "status": "Active",
+    "experience": 10,
+    "totalTips": 58
+  },
+  {
+    "name": "Carol White",
+    "imageUrl": "https://img.freepik.com/premium-photo/garden-worker-trimming-trees-with-scissors-garden-shop_255667-76887.jpg?ga=GA1.1.110764215.1723834094&semt=ais_hybrid&w=740",
+    "age": 29,
+    "gender": "Female",
+    "status": "Inactive",
+    "experience": 3,
+    "totalTips": 21
+  },
+  {
+    "name": "David Brown",
+    "imageUrl": "https://img.freepik.com/premium-photo/garden-worker-trimming-trees-with-scissors-garden-shop_255667-76887.jpg?ga=GA1.1.110764215.1723834094&semt=ais_hybrid&w=740",
+    "age": 37,
+    "gender": "Male",
+    "status": "Active",
+    "experience": 8,
+    "totalTips": 67
+  },
+  {
+    "name": "Eve Davis",
+    "imageUrl": "https://img.freepik.com/free-photo/shocked-young-brunette-female-gardener-optical-glasses-uniform-wearing-gardening-hat-holds-garden-clippers-isolated-orange-wall_141793-95954.jpg?uid=R201313634&ga=GA1.1.110764215.1723834094&semt=ais_items_boosted&w=740",
+    "age": 45,
+    "gender": "Female",
+    "status": "Active",
+    "experience": 12,
+    "totalTips": 89
+  },
+  {
+    "name": "Frank Green",
+    "imageUrl": "https://img.freepik.com/premium-photo/happy-man-apron-with-scoop-summer-garden_380164-256155.jpg?ga=GA1.1.110764215.1723834094&semt=ais_hybrid&w=740",
+    "age": 32,
+    "gender": "Male",
+    "status": "Inactive",
+    "experience": 5,
+    "totalTips": 35
+  },
+  {
+    "name": "Jack Wilson",
+    "imageUrl": "https://img.freepik.com/premium-photo/garden-worker-trimming-trees-with-scissors-yard_732190-2405.jpg?uid=R201313634&ga=GA1.1.110764215.1723834094&semt=ais_items_boosted&w=740",
+    "age": 28,
+    "gender": "Male",
+    "status": "Active",
+    "experience": 4,
+    "totalTips": 26
+  },
+  {
+    "name": "Moana Solomon",
+  "imageUrl": "https://img.freepik.com/free-photo/young-beautiful-florist-taking-care-flowers_176420-2076.jpg?uid=R201313634&ga=GA1.1.110764215.1723834094&semt=ais_items_boosted&w=740",
+    "age": 39,
+    "gender": "Female",
+    "status": "Active",
+    "experience": 9,
+    "totalTips": 73
+  }
+]

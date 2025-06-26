@@ -22,6 +22,8 @@ import TipsDesc from "./components/TipsDesc.jsx";
 import UpdateTips from "./components/UpdateTips.jsx";
 import "react-tooltip/dist/react-tooltip.css";
 import { HelmetProvider } from "react-helmet-async";
+import AboutUs from "./components/AboutUs.jsx";
+import Career from "./components/Career.jsx";
 
 const router = createBrowserRouter([
   {
@@ -74,6 +76,14 @@ const router = createBrowserRouter([
             <TipsDesc></TipsDesc>
           </PrivateRoute>
         ),
+      },
+      {
+         path:'/about',
+         Component:AboutUs,
+      },
+      {
+         path:'/career',
+         Component:Career,
       },
       {
         path:'/updateTips/:id',

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router"; // Correct import
-import { Helmet } from 'react-helmet-async';
+import { Link } from "react-router"; // ✅ FIXED
+import { Helmet } from "react-helmet-async";
 
 const Tips = () => {
   const [tips, setTips] = useState([]);
@@ -12,14 +12,20 @@ const Tips = () => {
     try {
       setLoading(true);
       const url = selectedDifficulty
-        ? `https://gardening-hub-server-indol.vercel.app/public-garden-tips?difficulty=${selectedDifficulty}`
+        ? `https://gardening-hub-server-indol.vercel.app/public-garden-tips?difficulty=${encodeURIComponent(
+            selectedDifficulty
+          )}`
         : "https://gardening-hub-server-indol.vercel.app/public-garden-tips";
 
       const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error("Failed to fetch garden tips");
+      }
+
       const data = await response.json();
       setTips(data);
     } catch (err) {
-      console.error("Failed to fetch garden tips:", err);
+      console.error("Fetch error:", err);
       setError("Failed to load garden tips. Please try again later.");
     } finally {
       setLoading(false);
@@ -50,8 +56,9 @@ const Tips = () => {
   return (
     <div className="container mx-auto p-6 min-h-screen">
       <Helmet>
-              <title>GardenHub | Browse Tips</title>
-            </Helmet>
+        <title>GardenHub | Browse Tips</title>
+      </Helmet>
+
       <h1 className="text-4xl font-extrabold text-green-500 italic mb-8 text-center">
         Browse Garden Tips
       </h1>
@@ -83,20 +90,30 @@ const Tips = () => {
           <table className="min-w-full divide-y divide-gray-200 bg-white">
             <thead className="bg-green-100">
               <tr>
-                <th className="px-6 py-3 text-center text-xs font-medium text-gray-700 uppercase">Title</th>
-                <th className="px-6 py-3 text-center text-xs font-medium text-gray-700 uppercase">Category</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase">Image</th>
-                <th className="px-6 py-3 text-center text-xs font-medium text-gray-700 uppercase">Actions</th>
+                <th className="px-6 py-3 text-center text-xs font-medium text-gray-700 uppercase">
+                  Title
+                </th>
+                <th className="px-6 py-3 text-center text-xs font-medium text-gray-700 uppercase">
+                  Category
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase">
+                  Image
+                </th>
+                <th className="px-6 py-3 text-center text-xs font-medium text-gray-700 uppercase">
+                  Actions
+                </th>
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
               {tips.map((tip) => (
                 <tr key={tip._id} className="hover:bg-gray-50 transition">
-                  <td className="px-6 py-4 text-sm text-gray-900 font-medium">
+                  <td className="px-6 py-4 text-sm text-gray-900 font-medium text-center">
                     {tip.title}
                   </td>
-                  <td className="px-6 py-4 text-sm text-gray-900">{tip.category}</td>
-                  <td className="px-6 py-4">
+                  <td className="px-6 py-4 text-sm text-gray-900 text-center">
+                    {tip.category}
+                  </td>
+                  <td className="px-6 py-4 text-left">
                     {tip.imageUrl ? (
                       <img
                         src={tip.imageUrl}
@@ -104,7 +121,8 @@ const Tips = () => {
                         className="h-16 w-16 object-cover rounded-md border border-gray-200 shadow-sm"
                         onError={(e) => {
                           e.target.onerror = null;
-                          e.target.src = "https://via.placeholder.com/64x64.png?text=No+Image";
+                          e.target.src =
+                            "https://via.placeholder.com/64x64.png?text=No+Image";
                         }}
                       />
                     ) : (

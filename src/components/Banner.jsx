@@ -30,7 +30,7 @@ const Banner = () => {
         {/* Slide 1 */}
         <div>
           <div
-            className="h-[400px] md:h-[500px] flex items-center bg-cover bg-center px-6 md:px-16"
+            className="h-[60vh] md:h-[70vh]  flex items-center bg-cover bg-center px-6 md:px-16"
             style={{
               backgroundImage:
                 "url('https://images.pexels.com/photos/1407305/pexels-photo-1407305.jpeg?auto=compress&cs=tinysrgb&w=600')",

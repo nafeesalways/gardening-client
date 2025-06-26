@@ -5,10 +5,9 @@ import Reviews from "./Reviews";
 import Tools from "./Tools";
 import TrendingTips from "./TrendingTips";
 
-
-
 import "react-tooltip/dist/react-tooltip.css";
 import { Helmet } from "react-helmet-async";
+import BlogSection from "./BlogSection";
 
 const Home = () => {
   return (
@@ -17,9 +16,6 @@ const Home = () => {
         <title> GardenHub</title>
       </Helmet>
       <section className="mt-6">
-      
-      
-
         <Banner></Banner>
       </section>
 
@@ -29,6 +25,9 @@ const Home = () => {
 
       <section className="mt-6">
         <TrendingTips></TrendingTips>
+      </section>
+      <section className="mt-6">
+        <BlogSection></BlogSection>
       </section>
 
       <section className="mt-6">

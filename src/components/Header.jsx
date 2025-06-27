@@ -205,7 +205,7 @@ const Header = () => {
         ) : (
           <>
             <Link
-              to="/auth/login"
+              to="/auth/login"      
               className="btn font-bold text-lg text-green-500"
             >
               Sign In

@@ -20,7 +20,7 @@ const Footer = () => {
       <br />
       Phone: <a href="tel:+1234567890" className="link link-hover text-green-300">+1 (234) 567-890</a>
       <br />
-      Address: 123 Garden Street, Green City, Earth.
+      Address: 123 Garden Streets, Green City, Earth.
     </p>
   </div>
 

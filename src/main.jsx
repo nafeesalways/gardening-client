@@ -29,6 +29,7 @@ import ActiveGardeners from "./Pages/Dashboard/ActiveGardeners.jsx";
 
 
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -121,6 +122,11 @@ const router = createBrowserRouter([
         path:'activeGardeners',
         Component:ActiveGardeners,
       },
+      {
+         path: "explore",
+        Component: ExploreGardeners,
+      },
+    
     ]
   },
  

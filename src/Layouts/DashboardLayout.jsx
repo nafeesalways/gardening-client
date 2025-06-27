@@ -41,6 +41,8 @@ const DashboardLayout = () => {
       {/* Sidebar content here */}
       <li className='text-green-500 text-xl'><Link to='/'>Home</Link></li>
       <li className='text-green-500 text-xl'><NavLink to='/dashboard/activeGardeners'>Active Gardeners</NavLink></li>
+      <li className='text-green-500 text-xl'><NavLink to='/dashboard/explore'>Explore Gardeners</NavLink></li>
+    
     </ul>
   </div>
 </div>

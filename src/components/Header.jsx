@@ -206,13 +206,13 @@ const Header = () => {
           <>
             <Link
               to="/auth/login"
-              className="btn hover:bg-black text-black hover:text-white"
+              className="btn font-bold text-lg text-green-500"
             >
               Sign In
             </Link>
             <Link
               to="/auth/register"
-              className="btn hover:bg-black text-black hover:text-white"
+              className="btn font-bold text-lg text-green-500"
             >
               Register
             </Link>

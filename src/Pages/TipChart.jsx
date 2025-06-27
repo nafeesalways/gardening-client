@@ -21,7 +21,7 @@ const TipChart = ({ tips }) => {
   confirmButtonText: "Yes, delete it!"
 }).then((result) => {
   if (result.isConfirmed) {
-    fetch(`https://gardening-hub-server-indol.vercel.app/myTips/${_id}`,{
+    fetch(`http://localhost:3000/myTips/${_id}`,{
       method:'DELETE'
 
     })
@@ -40,7 +40,7 @@ const TipChart = ({ tips }) => {
 });
   };
   return (
-    <div className="overflow-x-auto bg-green-50 shadow-xl rounded-2xl p-6 border border-green-200">
+    <div className="overflow-x-auto  shadow-xl rounded-2xl p-6 border">
       <Helmet>
               <title>GardenHub | Tips Details</title>
             </Helmet>

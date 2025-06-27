@@ -24,7 +24,7 @@ const BlogSection = () => {
 
   return (
     <section className="my-12 px-4 md:px-8 lg:px-16">
-      <h2 className="text-3xl font-bold text-green-800 mb-8 text-center">🌿 Gardening Blogs</h2>
+      <h2 className="text-3xl font-bold text-green-500 italic mb-8 text-center ">🌿 Gardening Blogs</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {blogs.map((blog) => (
           <div key={blog.id} className="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg transition duration-300">

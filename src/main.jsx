@@ -24,6 +24,10 @@ import "react-tooltip/dist/react-tooltip.css";
 import { HelmetProvider } from "react-helmet-async";
 import AboutUs from "./components/AboutUs.jsx";
 import Career from "./components/Career.jsx";
+import DashboardLayout from "./Layouts/DashboardLayout.jsx";
+import ActiveGardeners from "./Pages/Dashboard/ActiveGardeners.jsx";
+
+
 
 const router = createBrowserRouter([
   {
@@ -54,7 +58,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/myTips",
-        loader: () => fetch("https://gardening-hub-server-indol.vercel.app/myTips"),
+        loader: () => fetch("http://localhost:3000/myTips"),
         element: (
           <PrivateRoute>
             <MyTips></MyTips>
@@ -81,13 +85,14 @@ const router = createBrowserRouter([
          path:'/about',
          Component:AboutUs,
       },
+  
       {
          path:'/career',
          Component:Career,
       },
       {
         path:'/updateTips/:id',
-        loader:({params})=>fetch(`https://gardening-hub-server-indol.vercel.app/myTips/${params.id}`),
+        loader:({params})=>fetch(`http://localhost:3000/myTips/${params.id}`),
         element:<PrivateRoute>
        <UpdateTips></UpdateTips>
         </PrivateRoute>
@@ -106,6 +111,19 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path:'/dashboard',
+    element:<PrivateRoute>
+      <DashboardLayout></DashboardLayout>
+    </PrivateRoute>,
+    children:[
+      {
+        path:'activeGardeners',
+        Component:ActiveGardeners,
+      },
+    ]
+  },
+ 
 ]);
 
 createRoot(document.getElementById("root")).render(

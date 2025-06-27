@@ -34,47 +34,123 @@ const Header = () => {
       .then(() => toast.success("Logged out successfully"))
       .catch(() => toast.error("An error occurred"));
   };
+   const Links = (
+      <>
+        <NavLink
+          className={({ isActive }) =>
+            `block  font-bold mr-4 rounded transition-colors ${
+              isActive ? "border-b-4 font-bold text-lg text-green-500" : "font-semibold text-lg"
+            }`
+          }
+          to="/"
+        >
+          Home
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            `block  font-bold mr-4 rounded transition-colors ${
+              isActive ? "border-b-4 font-bold text-lg text-green-500" : "font-semibold text-lg"
+            }`
+          }
+          to="/explore"
+        >
+         Explore Gardeners
+        </NavLink>
+  
+        <NavLink
+          className={({ isActive }) =>
+            `block  font-bold mr-4 rounded transition-colors ${
+              isActive ? "border-b-4 font-bold text-lg text-green-500" : "font-semibold text-lg"
+            }`
+          }
+          to="/tips"
+        >
+         Browse Tips
+        </NavLink>
+        <NavLink
+          className={({ isActive }) =>
+            `block  font-bold mr-4 rounded transition-colors ${
+              isActive ? "border-b-4 font-bold text-lg text-green-500" : "font-semibold text-lg"
+            }`
+          }
+          to="/dashboard"
+        >
+        Dashboard
+        </NavLink>
+        {user && (
+          <>
+            <NavLink
+              className={({ isActive }) =>
+                `block  font-bold mr-4 rounded transition-colors ${
+                  isActive
+                    ? "border-b-4 font-bold text-lg text-green-500"
+                    : "font-semibold text-lg"
+                }`
+              }
+              to="/share"
+            >
+           Share a Garden Tip
+            </NavLink>
+            <NavLink
+              className={({ isActive }) =>
+                `block  font-bold mr-4 rounded transition-colors ${
+                  isActive
+                    ? "border-b-4 font-bold text-lg text-green-500"
+                    : "font-semibold text-lg"
+                }`
+              }
+              to="/myTips"
+            >
+              My Tips
+            </NavLink>
+          </>
+        )}
+      </>
+    );
 
 
   return (
-    <header className="sticky top-0 z-50 bg-green-100 border-b border-green-300 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between">
-        {/* Logo */}
-        <a
-          href="/"
-          className="text-green-800 font-bold text-xl flex items-center gap-2"
-        >
-          🌿 GardenHub
-        </a>
-
-        <input
-          id="menu-toggle"
-          type="checkbox"
-          className="peer hidden"
-          aria-label="Toggle navigation menu"
-        />
-        <label
-          htmlFor="menu-toggle"
-          className="md:hidden cursor-pointer"
-          aria-expanded="false"
-          aria-controls="nav-menu"
-        >
-          <svg
-            className="w-6 h-6 text-green-800"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            aria-hidden="true"
+ <div className="navbar sticky top-0 z-50 bg-base-100 shadow-sm">
+      <div className="navbar-start">
+        <div></div>
+        <div className="dropdown">
+          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              {" "}
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h8m-8 6h16"
+              />{" "}
+            </svg>
+          </div>
+          <ul
+            tabIndex={0}
+            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-        </label>
-
+            {Links}
+          </ul>
+        </div>
+        <a href="#">
+          <img
+            className="h-15 w-15"
+            src="https://cdn-icons-png.flaticon.com/128/6670/6670681.png"
+            alt=""
+          />
+        </a>
+        <a className="btn btn-ghost text-xl text-green-500">GardenHub</a>
+      </div>
+      <div className="navbar-center hidden lg:flex">
+        <ul className="menu menu-horizontal px-1">{Links}</ul>
+      </div>
+      <div className="navbar-end">
         <input
           type="checkbox"
           value="dark"
@@ -83,141 +159,69 @@ const Header = () => {
           onChange={handleThemeChange}
           aria-label="Toggle dark mode"
         />
-
-        <nav
-          id="nav-menu"
-          className="hidden peer-checked:flex flex-col w-full mt-4 space-y-2 md:flex md:flex-row md:space-y-0 md:space-x-4 md:mt-0 md:w-auto lg:space-x-6"
+        <div
+          id="my-button"
+          className="relative cursor-pointer"
+          onClick={() => setShowLogout(!showLogout)}
+          aria-label={`User profile: `}
         >
-          <NavLink
-            to="/"
-            className={({ isActive }) =>
-              `block text-green-800 font-medium px-3 py-2 rounded transition-colors ${
-                isActive
-                  ? "border border-green-400 bg-green-200"
-                  : "hover:text-green-700"
-              }`
-            }
-            onClick={() =>
-              (document.getElementById("menu-toggle").checked = false)
-            }
-          >
-            Home
-          </NavLink>
-
-          <NavLink
-            to="/explore"
-            className={({ isActive }) =>
-              `block text-green-800 font-medium px-3 py-2 rounded transition-colors ${
-                isActive
-                  ? "border border-green-400 bg-green-200"
-                  : "hover:text-green-700"
-              }`
-            }
-            onClick={() =>
-              (document.getElementById("menu-toggle").checked = false)
-            }
-          >
-            Explore Gardeners
-          </NavLink>
-          <NavLink
-            to="/tips"
-            className={({ isActive }) =>
-              `block text-green-800 font-medium px-3 py-2 rounded transition-colors ${
-                isActive
-                  ? "border border-green-400 bg-green-200"
-                  : "hover:text-green-700"
-              }`
-            }
-            onClick={() =>
-              (document.getElementById("menu-toggle").checked = false)
-            }
-          >
-            Browse Tips
-          </NavLink>
-          <NavLink
-            to="/share"
-            className={({ isActive }) =>
-              `block text-green-800 font-medium px-3 py-2 rounded transition-colors ${
-                isActive
-                  ? "border border-green-400 bg-green-200"
-                  : "hover:text-green-700"
-              }`
-            }
-            onClick={() =>
-              (document.getElementById("menu-toggle").checked = false)
-            }
-          >
-            Share a Garden Tip
-          </NavLink>
-          <NavLink
-            to="/myTips"
-            className={({ isActive }) =>
-              `block text-green-800 font-medium px-3 py-2 rounded transition-colors ${
-                isActive
-                  ? "border border-green-400 bg-green-200"
-                  : "hover:text-green-700"
-              }`
-            }
-            onClick={() =>
-              (document.getElementById("menu-toggle").checked = false)
-            }
-          >
-            My Tips
-          </NavLink>
-          {/* User Section */}
-          {/* <Tooltip title="This is a tooltip!"> */}
-     
-
-          <div className="flex items-center gap-3 sm:gap-4">
-            <div id="my-button"
-              className="relative cursor-pointer"
-              onClick={() => setShowLogout(!showLogout)}
-              aria-label={`User profile: `}
+          <img
+            data-tip="This is a tooltip!"
+            src={user ? user.photoURL : userIcon}
+            alt="User profile"
+            className="w-10 h-10 rounded-full object-cover"
+          />
+          <Tooltip
+            anchorId="my-button"
+            content={`${user?.displayName}`}
+            place="top"
+          />
+          {user && (
+            <div
+              className={`${
+                showLogout ? "block" : "hidden"
+              } absolute top-12 left-0 text-black text-sm px-2 py-1 bg-green-200 rounded shadow-md z-10 md:hidden`}
             >
-         
-              <img data-tip="This is a tooltip!" 
-                src={user ? user.photoURL : userIcon}
-                alt="User profile"
-                className="w-10 h-10 rounded-full object-cover"
-              />
-                  <Tooltip anchorId="my-button" content={`${user?.displayName}`} place="top" />
-              {user && (
-                <div
-                  className={`${
-                    showLogout ? "block" : "hidden"
-                  } absolute top-12 left-0 text-black text-sm px-2 py-1 bg-green-200 rounded shadow-md z-10 md:hidden`}
-                >
-                  {user.displayName}
-                </div>
-              )}
-
-              {user && (
-                <div className="hidden md:block absolute top-12 left-0 text-black text-sm px-2 py-1 bg-green-200 rounded shadow-md opacity-0 group-hover:opacity-100 transition whitespace-nowrap z-10">
-                  {user.displayName}
-                </div>
-              )}
+              {user.displayName}
             </div>
+          )}
 
-            {/* Logout/Login Button */}
-            {user ? (
-              <button
-                onClick={handleLogOut}
-                className="px-4 btn py-2 text-sm text-green-800 font-medium border border-green-400 bg-green-200 rounded shadow-md hover:bg-green-300 transition-colors"
-              >
-                Log Out
-              </button>
-            ) : (
-              <Link
-                to="/auth/login"
-                className="px-4 py-2 text-sm text-green-800 font-medium border border-green-400 bg-green-200 rounded shadow-md hover:bg-green-300 transition-colors"
-              >
-                Login
-              </Link>
-            )}
-          </div>
-        </nav>
+          {user && (
+            <div className="hidden md:block absolute top-12 left-0 text-black text-sm px-2 py-1 bg-green-200 rounded shadow-md opacity-0 group-hover:opacity-100 transition whitespace-nowrap z-10">
+              {user.displayName}
+            </div>
+          )}
+        </div>
+
+        {/* login and logout part */}
+        {user ? (
+          <button
+            onClick={handleLogOut}
+            className="btn hover:bg-green-500 text-green-500 font-bold hover:text-white"
+          >
+            Log Out
+          </button>
+        ) : (
+          <>
+            <Link
+              to="/auth/login"
+              className="btn hover:bg-black text-black hover:text-white"
+            >
+              Sign In
+            </Link>
+            <Link
+              to="/auth/register"
+              className="btn hover:bg-black text-black hover:text-white"
+            >
+              Register
+            </Link>
+          </>
+        )}
       </div>
-    </header>
+    </div>
+
+
+
   );
 };
 

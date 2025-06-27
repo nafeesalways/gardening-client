@@ -20,7 +20,7 @@ const ErrorPage = () => {
         {/* Right: Text */}
         <div className="text-center md:text-left w-full md:w-1/2">
           <h1 className="text-7xl font-bold text-green-600">404</h1>
-          <p className="text-2xl md:text-3xl font-semibold mt-4">
+          <p className="text-2xl md:text-3xl text-green-500 font-bold mt-4">
             Oops! Page not found.
           </p>
           <p className="mt-2 text-gray-600">

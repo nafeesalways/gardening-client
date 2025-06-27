@@ -9,13 +9,14 @@ const Tips = () => {
   const [difficulty, setDifficulty] = useState("");
 
   const fetchTips = async (selectedDifficulty) => {
+    console.log(selectedDifficulty)
     try {
       setLoading(true);
-      const url = selectedDifficulty
-        ? `https://gardening-hub-server-indol.vercel.app/public-garden-tips?difficulty=${encodeURIComponent(
+      const url =
+         `http://localhost:3000/public-garden-tips?difficulty=${
             selectedDifficulty
-          )}`
-        : "https://gardening-hub-server-indol.vercel.app/public-garden-tips";
+          }`
+        
 
       const response = await fetch(url);
       if (!response.ok) {
@@ -68,7 +69,7 @@ const Tips = () => {
         <select
           value={difficulty}
           onChange={(e) => setDifficulty(e.target.value)}
-          className="border border-gray-300 rounded-md p-2 text-sm text-gray-700 shadow-sm"
+          className="border border-gray-300 rounded-md p-2 text-sm text-green-500 font-bold shadow-sm"
         >
           <option value="">All Difficulty Levels</option>
           <option value="Easy">Easy</option>

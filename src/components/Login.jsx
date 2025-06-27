@@ -10,6 +10,7 @@ const Login = () => {
   const navigate = useNavigate();
     const handleGoogleSignIn =()=>{
     googleSignIn().then((result)=>{
+      navigate('/')
       console.log(result)
     }).catch((error)=>{
       console.log(error)
@@ -24,7 +25,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-		navigate(`${location.state ? location.state : '/'}`)
+		  navigate(location.state || "/");
         toast.success("User created successfully!");
       })
       .catch((error) => {
@@ -34,7 +35,7 @@ const Login = () => {
       });
   };
   return (
-    <div className="mx-auto m-7 max-w-md p-8 space-y-3 rounded-xl bg-gradient-to-r from-green-200 via-lime-200 to-amber-100  shadow-lg">
+    <div className="mx-auto m-7 max-w-md p-8 space-y-3 rounded-xl shadow-lg">
       <Helmet>
               <title>GardenHub | Login</title>
             </Helmet>
@@ -48,7 +49,7 @@ const Login = () => {
         className="space-y-6"
       >
         <div className="space-y-1 text-sm">
-          <label htmlFor="username" className="block dark:text-gray-600">
+          <label htmlFor="username" className="block text-gray-400">
             Email
           </label>
           <input
@@ -61,7 +62,7 @@ const Login = () => {
           />
         </div>
         <div className="space-y-1 text-sm">
-          <label htmlFor="password" className="block dark:text-gray-600">
+          <label htmlFor="password" className="block text-gray-400">
             Password
           </label>
           <input
@@ -72,7 +73,7 @@ const Login = () => {
             className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600"
 			required
           />
-          <div className="flex justify-end text-xs dark:text-gray-600">
+          <div className="flex justify-end text-xs text-gray-400">
             <a rel="noopener noreferrer" href="#">
               Forgot Password?
             </a>
@@ -97,10 +98,8 @@ const Login = () => {
       </div>
       <div className="flex justify-center space-x-4">
         <button onClick={handleGoogleSignIn}
-          className="btn px-4 py-2 text-white font-medium flex items-center gap-2 
-                   bg-gradient-to-r from-green-600 via-lime-500 to-amber-400 
-                   hover:from-green-700 hover:via-lime-600 hover:to-yellow-500 
-                   border-none rounded-lg shadow-md transition-all duration-300"
+          className="btn px-4 py-2  font-medium flex items-center gap-2 
+                 text-green-500 rounded-lg shadow-md transition-all duration-300"
         >
           <svg
             aria-label="Google logo"
@@ -132,13 +131,13 @@ const Login = () => {
           Continue with Google
         </button>
       </div>
-      <p className="text-xs text-center sm:px-6 dark:text-gray-600">
-        Don't have an account?
+      <p className="text-xs text-center text-black sm:px-6 dark:text-gray-600">
+        <span className="text-gray-400">Don't have an account?</span>
         <Link
           to="/auth/register"
           rel="noopener noreferrer"
           href="#"
-          className="underline dark:text-gray-800"
+          className="underline dark:text-green-500"
         >
           Register
         </Link>

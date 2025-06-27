@@ -4,7 +4,7 @@ const TrendingTips = () => {
   const [tips, setTips] = useState([]);
 
   const fetchTips = () => {
-    fetch("https://gardening-hub-server-indol.vercel.app/public-garden-tips")
+    fetch("http://localhost:3000/public-garden-tips")
       .then((res) => res.json())
       .then((data) => {
         const sorted = data
@@ -20,7 +20,7 @@ const TrendingTips = () => {
 
   const handleLike = async (tipId) => {
     try {
-      const res = await fetch(`https://gardening-hub-server-indol.vercel.app/tips/${tipId}/like`, {
+      const res = await fetch(`http://localhost:3000/tips/${tipId}/like`, {
         method: "PATCH",
       });
 

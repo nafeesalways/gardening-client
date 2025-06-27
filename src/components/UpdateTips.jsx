@@ -23,7 +23,7 @@ const UpdateTips = () => {
       bio: tip.bio, // Preserve bio unless editable
     };
 
-    fetch(`https://gardening-hub-server-indol.vercel.app/myTips/${tip._id}`, {
+    fetch(`http://localhost:3000/myTips/${tip._id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

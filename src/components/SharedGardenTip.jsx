@@ -32,7 +32,7 @@ const ShareGardenTip = () => {
 
 
     try {
-     const res  =  await fetch('https://gardening-hub-server-indol.vercel.app/garden-tips',{
+     const res  =  await fetch('http://localhost:3000/garden-tips',{
         method:'POST',
        headers:{
          'content-type':'application/json',

@@ -67,16 +67,7 @@ const Header = () => {
         >
          Browse Tips
         </NavLink>
-        <NavLink
-          className={({ isActive }) =>
-            `block  font-bold mr-4 rounded transition-colors ${
-              isActive ? "border-b-4 font-bold text-lg text-green-500" : "font-semibold text-lg"
-            }`
-          }
-          to="/dashboard"
-        >
-        Dashboard
-        </NavLink>
+ 
         {user && (
           <>
             <NavLink
@@ -91,6 +82,16 @@ const Header = () => {
             >
            Share a Garden Tip
             </NavLink>
+                   <NavLink
+          className={({ isActive }) =>
+            `block  font-bold mr-4 rounded transition-colors ${
+              isActive ? "border-b-4 font-bold text-lg text-green-500" : "font-semibold text-lg"
+            }`
+          }
+          to="/dashboard"
+        >
+        Dashboard
+        </NavLink>
             <NavLink
               className={({ isActive }) =>
                 `block  font-bold mr-4 rounded transition-colors ${

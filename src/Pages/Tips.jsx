@@ -13,7 +13,7 @@ const Tips = () => {
     try {
       setLoading(true);
       const url =
-         `http://localhost:3000/public-garden-tips?difficulty=${
+         `https://gardening-hub-server-indol.vercel.app/public-garden-tips?difficulty=${
             selectedDifficulty
           }`
         

@@ -21,7 +21,7 @@ const TipChart = ({ tips }) => {
   confirmButtonText: "Yes, delete it!"
 }).then((result) => {
   if (result.isConfirmed) {
-    fetch(`http://localhost:3000/myTips/${_id}`,{
+    fetch(`https://gardening-hub-server-indol.vercel.app/myTips/${_id}`,{
       method:'DELETE'
 
     })

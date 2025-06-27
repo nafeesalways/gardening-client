@@ -9,7 +9,7 @@ const FeaturedGarden = () => {
   useEffect(() => {
     const fetchActiveGardeners = async () => {
       try {
-        const response = await fetch('http://localhost:3000/active-gardeners');
+        const response = await fetch('https://gardening-hub-server-indol.vercel.app/active-gardeners');
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

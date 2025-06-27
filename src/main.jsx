@@ -59,7 +59,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/myTips",
-        loader: () => fetch("http://localhost:3000/myTips"),
+        loader: () => fetch("https://gardening-hub-server-indol.vercel.app/myTips"),
         element: (
           <PrivateRoute>
             <MyTips></MyTips>
@@ -93,7 +93,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/updateTips/:id',
-        loader:({params})=>fetch(`http://localhost:3000/myTips/${params.id}`),
+        loader:({params})=>fetch(`https://gardening-hub-server-indol.vercel.app/myTips/${params.id}`),
         element:<PrivateRoute>
        <UpdateTips></UpdateTips>
         </PrivateRoute>

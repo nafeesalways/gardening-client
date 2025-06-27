@@ -7,7 +7,7 @@ const TipsDesc = () => {
   const [tip, setTip] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/myTips/${id}`)
+    fetch(`https://gardening-hub-server-indol.vercel.app/myTips/${id}`)
       .then((res) => res.json())
       .then((data) => setTip(data));
   }, [id]);

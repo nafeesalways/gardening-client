@@ -6,7 +6,7 @@ Welcome to the **Gardening Community & Resource Hub** — a full-featured platfo
 
 ## 🔗 Live Demo
 
-[Click here to view the live site]([https://your-live-site-url.com](https://garden-life1.netlify.app/))
+([[https://your-live-site-url.com](https://garden-life1.netlify.app/)])
 
 ---
 

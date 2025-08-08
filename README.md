@@ -37,7 +37,7 @@ Welcome to the **Gardening Community & Resource Hub** — a full-featured platfo
 ## 📁 Project Structure,Installation and setup
 ```bash
 git clone https://github.com/your-username/gardening-hub.git
-cd food-expiry-tracker
+cd gardening-client
 npm install
 npm run dev
 

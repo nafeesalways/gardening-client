@@ -44,18 +44,18 @@ const TipChart = ({ tips }) => {
       <Helmet>
               <title>GardenHub | Tips Details</title>
             </Helmet>
-      <h2 className="text-2xl font-bold text-green-800 mb-4">
+      <h2 className="text-2xl font-bold  mb-4">
         My Gardening Tips
       </h2>
       <table className="table w-full">
         <thead>
           <tr className="text-left text-green-900 border-b-2 border-green-300">
-            <th className="py-3">Image</th>
-            <th className="py-3">Name</th>
-            <th className="py-3">Bio</th>
-            <th className="py-3">Tip Title</th>
-            <th className="py-3">Difficulty</th>
-            <th className="py-3">Category</th>
+            <th className="py-3 text-green-600">Image</th>
+            <th className="py-3 text-green-600">Name</th>
+            <th className="py-3 text-green-600">Bio</th>
+            <th className="py-3 text-green-600">Tip Title</th>
+            <th className="py-3 text-green-600">Difficulty</th>
+            <th className="py-3 text-green-600">Category</th>
           </tr>
         </thead>
         <tbody>
@@ -65,7 +65,7 @@ const TipChart = ({ tips }) => {
             return (
               <tr
                 key={tip._id}
-                className="hover:bg-green-100 transition duration-300"
+                className=""
               >
                 <td className="py-2">
                   <img
@@ -73,7 +73,7 @@ const TipChart = ({ tips }) => {
                     className="w-16 h-16 object-cover rounded-full border border-green-300"
                   />
                 </td>
-                <td className="py-2 font-semibold text-green-900">
+                <td className="py-2 font-semibold text-green-600">
                   {tip?.userName}
                 </td>
                 <td className="py-2 text-green-700">{tip?.bio || "No Bio"}</td>

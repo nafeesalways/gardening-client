@@ -1,75 +1,58 @@
-import React, { use, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
 import userIcon from "../assets/image.png";
-import { useState } from "react";
-import { Tooltip } from "react-tooltip";
 
 const Header = () => {
-  const { user, logOut } = use(AuthContext);
-  const [showLogout, setShowLogout] = useState(false);
-
+  const { user, logOut } = useContext(AuthContext);
   const [theme, setTheme] = useState(
-    localStorage.getItem("theme") === "light" ? "light" : "dark"
+    localStorage.getItem("theme") === "dark" ? "dark" : "light"
   );
 
-  // Load theme from localStorage on component mount
+  // Load theme on mount
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    setTheme(savedTheme);
-    document.querySelector("html").setAttribute("data-theme", savedTheme);
+    document.querySelector("html").setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
-  // Toggle theme function
-  const handleThemeChange = (event) => {
-    const newTheme = event.target.checked ? "dark" : "light";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
-  };
-
+  // Logout
   const handleLogOut = () => {
     logOut()
       .then(() => toast.success("Logged out successfully"))
       .catch(() => toast.error("An error occurred"));
   };
 
+  // Links
   const Links = (
     <>
       <NavLink
+        to="/"
         className={({ isActive }) =>
-          `block font-bold mr-2 lg:mr-4 rounded transition-colors ${
-            isActive
-              ? "border-b-2 lg:border-b-4 font-bold text-xs sm:text-sm lg:text-lg text-green-500"
-              : "font-semibold text-xs sm:text-sm lg:text-lg hover:text-green-400"
+          `font-semibold mx-1 sm:mx-2 ${
+            isActive ? "text-green-500 border-b-2 border-green-500" : "hover:text-green-500"
           }`
         }
-        to="/"
       >
         Home
       </NavLink>
       <NavLink
+        to="/explore"
         className={({ isActive }) =>
-          `block font-bold mr-2 lg:mr-4 rounded transition-colors ${
-            isActive
-              ? "border-b-2 lg:border-b-4 font-bold text-xs sm:text-sm lg:text-lg text-green-500"
-              : "font-semibold text-xs sm:text-sm lg:text-lg hover:text-green-400"
+          `font-semibold mx-1 sm:mx-2 ${
+            isActive ? "text-green-500 border-b-2 border-green-500" : "hover:text-green-500"
           }`
         }
-        to="/explore"
       >
         Explore Gardeners
       </NavLink>
-
       <NavLink
+        to="/tips"
         className={({ isActive }) =>
-          `block font-bold mr-2 lg:mr-4 rounded transition-colors ${
-            isActive
-              ? "border-b-2 lg:border-b-4 font-bold text-xs sm:text-sm lg:text-lg text-green-500"
-              : "font-semibold text-xs sm:text-sm lg:text-lg hover:text-green-400"
+          `font-semibold mx-1 sm:mx-2 ${
+            isActive ? "text-green-500 border-b-2 border-green-500" : "hover:text-green-500"
           }`
         }
-        to="/tips"
       >
         Browse Tips
       </NavLink>
@@ -77,38 +60,32 @@ const Header = () => {
       {user && (
         <>
           <NavLink
+            to="/share"
             className={({ isActive }) =>
-              `block font-bold mr-2 lg:mr-4 rounded transition-colors ${
-                isActive
-                  ? "border-b-2 lg:border-b-4 font-bold text-xs sm:text-sm lg:text-lg text-green-500"
-                  : "font-semibold text-xs sm:text-sm lg:text-lg hover:text-green-400"
+              `font-semibold mx-1 sm:mx-2 ${
+                isActive ? "text-green-500 border-b-2 border-green-500" : "hover:text-green-500"
               }`
             }
-            to="/share"
           >
-            Share a Garden Tip
+            Share Tip
           </NavLink>
           <NavLink
+            to="/dashboard"
             className={({ isActive }) =>
-              `block font-bold mr-2 lg:mr-4 rounded transition-colors ${
-                isActive
-                  ? "border-b-2 lg:border-b-4 font-bold text-xs sm:text-sm lg:text-lg text-green-500"
-                  : "font-semibold text-xs sm:text-sm lg:text-lg hover:text-green-400"
+              `font-semibold mx-1 sm:mx-2 ${
+                isActive ? "text-green-500 border-b-2 border-green-500" : "hover:text-green-500"
               }`
             }
-            to="/dashboard"
           >
             Dashboard
           </NavLink>
           <NavLink
+            to="/myTips"
             className={({ isActive }) =>
-              `block font-bold mr-2 lg:mr-4 rounded transition-colors ${
-                isActive
-                  ? "border-b-2 lg:border-b-4 font-bold text-xs sm:text-sm lg:text-lg text-green-500"
-                  : "font-semibold text-xs sm:text-sm lg:text-lg hover:text-green-400"
+              `font-semibold mx-1 sm:mx-2 ${
+                isActive ? "text-green-500 border-b-2 border-green-500" : "hover:text-green-500"
               }`
             }
-            to="/myTips"
           >
             My Tips
           </NavLink>
@@ -118,128 +95,105 @@ const Header = () => {
   );
 
   return (
-    <div className="navbar sticky top-0 z-50 px-2 sm:px-4">
+    <div className="navbar sticky top-0 z-50 bg-base-200 px-4 sm:px-6 lg:px-10 shadow-md">
+      {/* Left: Logo + Mobile menu */}
       <div className="navbar-start">
-        {/* Mobile menu dropdown */}
+        {/* Mobile dropdown */}
         <div className="dropdown">
-          <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+          <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
+              className="h-6 w-6"
               fill="none"
-              viewBox="0 0 24 24"
               stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16m-8 6h8" />
             </svg>
-          </div>
+          </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow-lg border"
+            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             {Links}
+            <div className="mt-2 border-t pt-2">
+              {user ? (
+                <button
+                  onClick={handleLogOut}
+                  className="btn btn-sm w-full bg-green-600 text-white hover:bg-green-700"
+                >
+                  Log Out
+                </button>
+              ) : (
+                <>
+                  <Link to="/auth/login" className="btn btn-sm w-full mb-1">
+                    Sign In
+                  </Link>
+                  <Link to="/auth/register" className="btn btn-sm w-full">
+                    Register
+                  </Link>
+                </>
+              )}
+            </div>
           </ul>
         </div>
 
-        {/* Logo and Brand */}
-        <div className="flex items-center -ml-4">
-          <Link to="/" className="flex items-center">
-            <img
-              className="h-5 w-5 lg:h-12 lg:w-12 lg:mr-2 lg:-ml-3"
-              src="https://cdn-icons-png.flaticon.com/128/6670/6670681.png"
-              alt="GardenHub Logo"
-            />
-            <span className="btn btn-ghost text-sm lg:text-xl text-green-500 font-bold p-0">
-              GardenHub
-            </span>
-          </Link>
-        </div>
+        {/* Logo */}
+        <Link to="/" className="flex items-center gap-2">
+          <img
+            src="https://cdn-icons-png.flaticon.com/128/6670/6670681.png"
+            alt="GardenHub Logo"
+            className="h-6 w-6 sm:h-10 sm:w-10"
+          />
+          <span className="font-bold text-green-600 text-sm sm:text-lg">GardenHub</span>
+        </Link>
       </div>
 
-      {/* Desktop Navigation */}
+      {/* Center: Desktop links */}
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{Links}</ul>
+        <ul className="menu menu-horizontal">{Links}</ul>
       </div>
 
-      {/* Right side - Theme toggle, Profile, Auth buttons */}
-      <div className="navbar-end flex items-center gap-2 sm:gap-4">
-        {/* Theme Toggle */}
+      {/* Right: Theme toggle + Auth/Profile */}
+      <div className="navbar-end flex items-center gap-3">
+        {/* Theme toggle (always visible) */}
         <input
           type="checkbox"
-          value="dark"
-          className="lg:toggle lg:theme-controller scale-75 sm:scale-100 hidden"
+          className="lg:toggle lg:toggle-success hidden"
           checked={theme === "dark"}
-          onChange={handleThemeChange}
+          onChange={() => setTheme(theme === "dark" ? "light" : "dark")}
           aria-label="Toggle dark mode"
         />
 
-        {/* User Profile */}
-        <div className="relative">
-          <div
-            id="my-button"
-            className="relative cursor-pointer group"
-            onClick={() => setShowLogout(!showLogout)}
-            aria-label={`User profile: ${user?.displayName || 'Guest'}`}
-          >
-            <img
-              src={user ? user.photoURL : userIcon}
-              alt="User profile"
-              className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover border-2 border-transparent hover:border-green-300 transition-colors"
-            />
-            
-            {/* Tooltip */}
-            <Tooltip
-              anchorId="my-button"
-              content={user?.displayName || 'Guest'}
-              place="bottom"
-              className="text-xs"
-            />
-
-            {/* Mobile username display */}
-            {user && (
-              <div
-                className={`${
-                  showLogout ? "block" : "hidden"
-                } absolute top-12 right-0 text-black text-xs px-2 py-1 bg-green-200 rounded shadow-md z-10 lg:hidden whitespace-nowrap`}
-              >
-                {user.displayName}
-              </div>
-            )}
-
-            {/* Desktop username display on hover */}
-            {user && (
-              <div className="hidden lg:block absolute top-12 right-0 text-black text-xs px-2 py-1 bg-green-200 rounded shadow-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap z-10">
-                {user.displayName}
-              </div>
-            )}
-          </div>
-        </div>
-
-        {/* Authentication Buttons */}
+        {/* Profile dropdown if logged in */}
         {user ? (
-          <button
-            onClick={handleLogOut}
-            className="btn btn-sm sm:btn-md hover:bg-green-500 text-green-500 font-bold hover:text-white border-green-500 hover:border-green-500 text-xs sm:text-sm lg:text-base"
-          >
-            Log Out
-          </button>
-        ) : (
-          <div className="flex gap-1 sm:gap-2">
-            <Link
-              to="/auth/login"
-              className="btn btn-sm sm:btn-md font-bold text-xs sm:text-sm lg:text-base text-green-500 border-green-500 hover:bg-green-500 hover:text-white"
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img src={user.photoURL || userIcon} alt="profile" />
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content mt-3 p-2 bg-base-100 rounded-box shadow w-52"
             >
+              <li className="font-semibold">{user.displayName}</li>
+              <li>
+                <button
+                  onClick={handleLogOut}
+                  className="btn btn-sm bg-green-600 text-white hover:bg-green-700"
+                >
+                  Log Out
+                </button>
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <div className="hidden sm:flex gap-2">
+            <Link to="/auth/login" className="btn btn-sm border-green-600 text-green-600 hover:bg-green-600 hover:text-white">
               Sign In
             </Link>
-            <Link
-              to="/auth/register"
-              className="btn btn-sm sm:btn-md font-bold text-xs sm:text-sm lg:text-base text-green-500 border-green-500 hover:bg-green-500 hover:text-white"
-            >
+            <Link to="/auth/register" className="btn btn-sm bg-green-600 text-white hover:bg-green-700">
               Register
             </Link>
           </div>

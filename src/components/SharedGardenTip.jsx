@@ -97,9 +97,9 @@ const ShareGardenTip = () => {
             name="title"
             value={formData.title}
             onChange={handleChange}
-            placeholder='e.g., "How I Grow Tomatoes Indoors"'
+            placeholder='Enter Title"'
             required
-            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
+            className="mt-1 block w-full text-black px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
           />
         </div>
 
@@ -116,7 +116,7 @@ const ShareGardenTip = () => {
             onChange={handleChange}
             placeholder='e.g., "Herbs", "Composting Basics"'
             required
-            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
+            className="mt-1 block w-full text-black px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
           />
         </div>
 
@@ -131,7 +131,7 @@ const ShareGardenTip = () => {
             value={formData.difficulty}
             onChange={handleChange}
             required
-            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
+            className="mt-1 block w-full text-black px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
           >
             <option value="">Select Difficulty</option>
             <option value="Easy">Easy</option>
@@ -153,7 +153,7 @@ const ShareGardenTip = () => {
             onChange={handleChange}
             placeholder="Provide a detailed description of your garden tip, including steps, materials, and any helpful insights."
             required
-            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
+            className="mt-1 block w-full text-black px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
           ></textarea>
         </div>
 
@@ -168,8 +168,8 @@ const ShareGardenTip = () => {
             name="imageUrl"
             value={formData.imageUrl}
             onChange={handleChange}
-            placeholder="e.g., https://example.com/your-image.jpg"
-            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
+            placeholder="Enter ImageUrl"
+            className="mt-1 block w-full text-black px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
           />
         </div>
 
@@ -184,7 +184,7 @@ const ShareGardenTip = () => {
             value={formData.category}
             onChange={handleChange}
             required
-            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
+            className="mt-1 block w-full text-black px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
           >
             <option value="">Select Category</option>
             <option value="Composting">Composting</option>
@@ -211,7 +211,7 @@ const ShareGardenTip = () => {
             value={formData.availability}
             onChange={handleChange}
             required
-            className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
+            className="mt-1 block w-full px-4 py-2 text-black border border-gray-300 rounded-md shadow-sm focus:ring-green-500 focus:border-green-500 sm:text-sm"
           >
             <option value="Public">Public</option>
             <option value="Hidden">Hidden</option>
@@ -229,7 +229,7 @@ const ShareGardenTip = () => {
             name="userEmail"
             value={formData.userEmail}
             readOnly
-            className="mt-1 block w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm cursor-not-allowed sm:text-sm"
+            className="mt-1 block w-full text-black px-4 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm cursor-not-allowed sm:text-sm"
           />
         </div>
 
@@ -244,7 +244,7 @@ const ShareGardenTip = () => {
             name="userName"
             value={formData.userName}
             readOnly
-            className="mt-1 block w-full px-4 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm cursor-not-allowed sm:text-sm"
+            className="mt-1 block w-full text-black px-4 py-2 text-black  border border-gray-300 rounded-md shadow-sm cursor-not-allowed sm:text-sm"
           />
         </div>
 

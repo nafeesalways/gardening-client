@@ -6,7 +6,7 @@ Welcome to the **Gardening Community & Resource Hub** — a full-featured platfo
 
 ## 🔗 Live Demo
 
-[Click here to view the live site](https://your-live-site-url.com)
+[live-site-url](https://garden-life1.netlify.app)
 
 ---
 
@@ -36,8 +36,8 @@ Welcome to the **Gardening Community & Resource Hub** — a full-featured platfo
 
 ## 📁 Project Structure,Installation and setup
 ```bash
-git clone https://github.com/your-username/gardening-hub.git
-cd food-expiry-tracker
+git clone https://github.com/your-username/gardening-client.git
+cd gardening-client
 npm install
 npm run dev
 

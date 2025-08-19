@@ -159,7 +159,7 @@ const Header = () => {
         {/* Theme toggle (always visible) */}
         <input
           type="checkbox"
-          className="toggle toggle-success -mr-4"
+          className="toggle toggle-success lg:space-x-3  -mr-5"
           checked={theme === "dark"}
           onChange={() => setTheme(theme === "dark" ? "light" : "dark")}
           aria-label="Toggle dark mode"

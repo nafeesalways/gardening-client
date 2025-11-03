@@ -4,7 +4,7 @@ const Reviews = () => {
     return (
       <section className="bg-green-50 py-12 px-4 md:px-16">
   <div className="max-w-6xl mx-auto text-center">
-    <h2 className="text-3xl font-bold text-green-800 mb-10">What Gardeners Are Saying 🌼</h2>
+    <h2 className="text-3xl font-bold text-green-800 mb-10">What Gardeners Are Saying </h2>
     <div className="grid gap-6 md:grid-cols-3">
       <div className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
         <p className="text-gray-700 mb-4">“GardeningHub helped me plan my first vegetable garden! Their planting calendar is a game-changer.”</p>

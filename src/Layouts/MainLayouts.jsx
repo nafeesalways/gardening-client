@@ -8,7 +8,7 @@ import Container from "../components/Container";
 const MainLayouts = () => {
   return (
     <div>
-      <Container>
+     
       <Header></Header>
 
       <div>
@@ -17,7 +17,7 @@ const MainLayouts = () => {
       <footer className="mt-6">
         <Footer></Footer>
       </footer>
-      </Container>
+   
     </div>
   );
 };

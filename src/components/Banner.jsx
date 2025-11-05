@@ -180,7 +180,7 @@ const Banner = () => {
   ];
 
   return (
-    <section className="w-full">
+    <section className="w-full overflow-hidden">
       <Slider {...settings}>
         {slides.map((slide) => (
           <div key={slide.id}>

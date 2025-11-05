@@ -10,10 +10,10 @@ const MainLayouts = () => {
     <div>
       <Header></Header>
   
-      <div>
-        <Container>
+      <div className="min-h-[calc(100vh-68px)]">
+  
           <Outlet></Outlet>
-        </Container>
+      
       </div>
       <footer className="mt-6">
         <Footer></Footer>

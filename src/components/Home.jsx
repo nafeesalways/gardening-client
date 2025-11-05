@@ -17,42 +17,41 @@ const Home = () => {
       <Helmet>
         <title> GardenHub</title>
       </Helmet>
-      <section className="mt-6">
-        <Banner></Banner>
-      </section>
+
+      <Banner></Banner>
 
       <section className="mt-6">
-      
+      <Container>
           <FeaturedGarden></FeaturedGarden>
-       
+      </Container>
       </section>
 
       <section className="mt-6">
-      
+      <Container>
           <TrendingTips></TrendingTips>
-  
+      </Container>
       </section>
       <section className="mt-6">
-    
-          <BlogSection></BlogSection>
-       
+       <Container>
+         <BlogSection></BlogSection>
+       </Container>
       </section>
       <section className="mt-6">
-      
+      <Container>
           <Newsletter></Newsletter>
-        
+      </Container>
       </section>
 
       <section className="mt-6">
-     
+        <Container>
           <Tools></Tools>
-     
+        </Container>
       </section>
 
       <section className="mt-6">
-     
-          <Tools></Tools>
-        
+     <Container>
+         <Reviews></Reviews>
+     </Container>
       </section>
     </div>
   );

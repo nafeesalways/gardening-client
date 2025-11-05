@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import Loader from './Loader';
+import React, { useEffect, useState } from "react";
+import Loader from "./Loader";
 
 const FeaturedGarden = () => {
   const [activeGardeners, setActiveGardeners] = useState([]);
@@ -9,7 +9,9 @@ const FeaturedGarden = () => {
   useEffect(() => {
     const fetchActiveGardeners = async () => {
       try {
-        const response = await fetch('https://gardening-hub-server-indol.vercel.app/active-gardeners');
+        const response = await fetch(
+          "https://gardening-hub-server-indol.vercel.app/active-gardeners"
+        );
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -32,7 +34,9 @@ const FeaturedGarden = () => {
 
   return (
     <section className="featured-gardeners mt-8 px-4">
-      <h2 className="text-2xl font-bold italic text-green-600 mb-2">Active Gardeners</h2>
+      <h2 className="text-2xl font-bold italic text-green-600 mb-2">
+        Active Gardeners
+      </h2>
       <div className="grid gap-6  md:grid-cols-2 lg:grid-cols-3">
         {activeGardeners.map((gardener) => (
           <div
@@ -44,7 +48,9 @@ const FeaturedGarden = () => {
               alt={gardener.name}
               className="w-28 h-28 rounded-full mx-auto mb-3 border-4 border-green-500 object-cover"
             />
-            <h3 className="text-lg font-semibold text-green-700">{gardener.name}</h3>
+            <h3 className="text-lg font-semibold text-green-700">
+              {gardener.name}
+            </h3>
             <p className="text-gray-600 text-sm">{gardener.bio}</p>
           </div>
         ))}

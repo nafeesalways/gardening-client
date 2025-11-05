@@ -54,13 +54,18 @@ const Header = () => {
 
       {user && (
         <>
-          <NavLink to="/share" className={navLinkClass} onClick={closeMobileMenu}>
+          <NavLink
+            to="/share"
+            className={navLinkClass}
+            onClick={closeMobileMenu}
+          >
             Share Tip
           </NavLink>
-          <NavLink to="/dashboard" className={navLinkClass} onClick={closeMobileMenu}>
-            Dashboard
-          </NavLink>
-          <NavLink to="/myTips" className={navLinkClass} onClick={closeMobileMenu}>
+          <NavLink
+            to="/myTips"
+            className={navLinkClass}
+            onClick={closeMobileMenu}
+          >
             My Tips
           </NavLink>
         </>
@@ -119,7 +124,7 @@ const Header = () => {
             >
               <div className="w-7 h-7 sm:w-9 sm:h-9 lg:w-10 lg:h-10 flex items-center justify-center bg-green-50 dark:bg-green-900/20 rounded-lg">
                 <img
-                  src="https://cdn-icons-png.flaticon.com/128/6670/6670681.png"
+                  src="https://cdn-icons-png.flaticon.com/128/8757/8757837.png"
                   alt="GardenHub"
                   className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6"
                 />
@@ -238,7 +243,7 @@ const Header = () => {
         >
           <div className="flex flex-col py-3 space-y-1 border-t border-base-300">
             {Links}
-            
+
             {/* Mobile Auth Buttons */}
             <div className="pt-3 mt-3 border-t border-base-300 space-y-2 px-3">
               {user ? (

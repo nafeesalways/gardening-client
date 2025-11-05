@@ -24,8 +24,7 @@ import "react-tooltip/dist/react-tooltip.css";
 import { HelmetProvider } from "react-helmet-async";
 import AboutUs from "./components/AboutUs.jsx";
 import Career from "./components/Career.jsx";
-import DashboardLayout from "./Layouts/DashboardLayout.jsx";
-import ActiveGardeners from "./Pages/Dashboard/ActiveGardeners.jsx";
+
 
 
 
@@ -111,23 +110,6 @@ const router = createBrowserRouter([
         Component: ErrorPage,
       },
     ],
-  },
-  {
-    path:'/dashboard',
-    element:<PrivateRoute>
-      <DashboardLayout></DashboardLayout>
-    </PrivateRoute>,
-    children:[
-      {
-        path:'activeGardeners',
-        Component:ActiveGardeners,
-      },
-      {
-         path: "explore",
-        Component: ExploreGardeners,
-      },
-    
-    ]
   },
  
 ]);

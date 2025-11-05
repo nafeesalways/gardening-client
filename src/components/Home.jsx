@@ -8,6 +8,7 @@ import TrendingTips from "./TrendingTips";
 import "react-tooltip/dist/react-tooltip.css";
 import { Helmet } from "react-helmet-async";
 import BlogSection from "./BlogSection";
+import Newsletter from "./Newsletter";
 
 const Home = () => {
   return (
@@ -28,6 +29,9 @@ const Home = () => {
       </section>
       <section className="mt-6">
         <BlogSection></BlogSection>
+      </section>
+      <section className="mt-6">
+        <Newsletter></Newsletter>
       </section>
 
       <section className="mt-6">

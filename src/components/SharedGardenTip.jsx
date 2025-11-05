@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
+import React, { useState } from "react";
+import { Helmet } from "react-helmet-async";
 
 const ShareGardenTip = () => {
   const [formData, setFormData] = useState({
-    title: '',
-    plantType: '',
-    difficulty: '',
-    description: '',
-    imageUrl: '',
-    category: '',
-    availability: 'Public',
-    userEmail: 'user@example.com',
-    userName: 'John Doe',
+    title: "",
+    plantType: "",
+    difficulty: "",
+    description: "",
+    imageUrl: "",
+    category: "",
+    availability: "Public",
+    userEmail: "user@example.com",
+    userName: "John Doe",
   });
 
   const [submissionSuccess, setSubmissionSuccess] = useState(false);
@@ -33,35 +33,38 @@ const ShareGardenTip = () => {
     setIsSubmitting(true);
 
     try {
-      const res = await fetch('https://gardening-hub-server-indol.vercel.app/garden-tips', {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        "https://gardening-hub-server-indol.vercel.app/garden-tips",
+        {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
       const data = await res.json();
       console.log(data);
 
       setSubmissionSuccess(true);
       setFormData({
-        title: '',
-        plantType: '',
-        difficulty: '',
-        description: '',
-        imageUrl: '',
-        category: '',
-        availability: 'Public',
-        userEmail: 'user@example.com',
-        userName: 'John Doe',
+        title: "",
+        plantType: "",
+        difficulty: "",
+        description: "",
+        imageUrl: "",
+        category: "",
+        availability: "Public",
+        userEmail: "user@example.com",
+        userName: "John Doe",
       });
 
       // Auto-hide success message after 5 seconds
       setTimeout(() => setSubmissionSuccess(false), 5000);
     } catch (error) {
       setSubmissionError(true);
-      console.error('Error submitting form:', error);
-      
+      console.error("Error submitting form:", error);
+
       // Auto-hide error message after 5 seconds
       setTimeout(() => setSubmissionError(false), 5000);
     } finally {
@@ -78,12 +81,22 @@ const ShareGardenTip = () => {
       {/* Header Section */}
       <div className="max-w-3xl mx-auto text-center mb-8">
         <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full mb-4">
-          <svg className="w-8 h-8 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+          <svg
+            className="w-8 h-8 text-green-600 dark:text-green-400"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+            />
           </svg>
         </div>
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-gray-100 mb-3">
-          Share Your Garden Tip 
+          Share Your Garden Tip
         </h1>
         <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto">
           Help fellow gardeners grow by sharing your expertise and experiences
@@ -94,28 +107,55 @@ const ShareGardenTip = () => {
       <div className="max-w-3xl mx-auto bg-white dark:bg-gray-800 shadow-2xl rounded-2xl border border-gray-100 dark:border-gray-700 overflow-hidden">
         {/* Success / Error messages */}
         {submissionSuccess && (
-          <div className="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 text-green-800 dark:text-green-300 p-4 m-6 rounded-lg animate-fadeIn" role="alert">
+          <div
+            className="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 text-green-800 dark:text-green-300 p-4 m-6 rounded-lg animate-fadeIn"
+            role="alert"
+          >
             <div className="flex items-start gap-3">
-              <svg className="w-6 h-6 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              <svg
+                className="w-6 h-6 flex-shrink-0 mt-0.5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clipRule="evenodd"
+                />
               </svg>
               <div>
                 <p className="font-bold">Success!</p>
-                <p className="text-sm">Your garden tip has been submitted successfully. Thank you for sharing! 🎉</p>
+                <p className="text-sm">
+                  Your garden tip has been submitted successfully. Thank you for
+                  sharing! 🎉
+                </p>
               </div>
             </div>
           </div>
         )}
 
         {submissionError && (
-          <div className="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 text-red-800 dark:text-red-300 p-4 m-6 rounded-lg animate-fadeIn" role="alert">
+          <div
+            className="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 text-red-800 dark:text-red-300 p-4 m-6 rounded-lg animate-fadeIn"
+            role="alert"
+          >
             <div className="flex items-start gap-3">
-              <svg className="w-6 h-6 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+              <svg
+                className="w-6 h-6 flex-shrink-0 mt-0.5"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                  clipRule="evenodd"
+                />
               </svg>
               <div>
                 <p className="font-bold">Error!</p>
-                <p className="text-sm">There was an issue submitting your tip. Please try again.</p>
+                <p className="text-sm">
+                  There was an issue submitting your tip. Please try again.
+                </p>
               </div>
             </div>
           </div>
@@ -125,7 +165,10 @@ const ShareGardenTip = () => {
         <form onSubmit={handleSubmit} className="p-6 sm:p-8 space-y-6">
           {/* Title */}
           <div>
-            <label htmlFor="title" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+            <label
+              htmlFor="title"
+              className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+            >
               Tip Title <span className="text-red-500">*</span>
             </label>
             <input
@@ -144,7 +187,10 @@ const ShareGardenTip = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             {/* Plant Type/Topic */}
             <div>
-              <label htmlFor="plantType" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+              <label
+                htmlFor="plantType"
+                className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+              >
                 Plant Type/Topic <span className="text-red-500">*</span>
               </label>
               <input
@@ -161,7 +207,10 @@ const ShareGardenTip = () => {
 
             {/* Difficulty Level */}
             <div>
-              <label htmlFor="difficulty" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+              <label
+                htmlFor="difficulty"
+                className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+              >
                 Difficulty Level <span className="text-red-500">*</span>
               </label>
               <select
@@ -182,7 +231,10 @@ const ShareGardenTip = () => {
 
           {/* Description */}
           <div>
-            <label htmlFor="description" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+            <label
+              htmlFor="description"
+              className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+            >
               Detailed Description <span className="text-red-500">*</span>
             </label>
             <textarea
@@ -204,7 +256,10 @@ const ShareGardenTip = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             {/* Category */}
             <div>
-              <label htmlFor="category" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+              <label
+                htmlFor="category"
+                className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+              >
                 Category <span className="text-red-500">*</span>
               </label>
               <select
@@ -218,7 +273,9 @@ const ShareGardenTip = () => {
                 <option value="">Select Category</option>
                 <option value="Composting">♻️ Composting</option>
                 <option value="Plant Care">🌺 Plant Care</option>
-                <option value="Vertical Gardening">🏢 Vertical Gardening</option>
+                <option value="Vertical Gardening">
+                  🏢 Vertical Gardening
+                </option>
                 <option value="Pest Control">🐛 Pest Control</option>
                 <option value="Soil Health">🌍 Soil Health</option>
                 <option value="Watering">💧 Watering</option>
@@ -231,7 +288,10 @@ const ShareGardenTip = () => {
 
             {/* Availability */}
             <div>
-              <label htmlFor="availability" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+              <label
+                htmlFor="availability"
+                className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+              >
                 Visibility <span className="text-red-500">*</span>
               </label>
               <select
@@ -250,8 +310,12 @@ const ShareGardenTip = () => {
 
           {/* Image URL */}
           <div>
-            <label htmlFor="imageUrl" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
-              Image URL <span className="text-gray-500 text-xs">(Optional)</span>
+            <label
+              htmlFor="imageUrl"
+              className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+            >
+              Image URL{" "}
+              <span className="text-gray-500 text-xs">(Optional)</span>
             </label>
             <input
               type="url"
@@ -269,11 +333,16 @@ const ShareGardenTip = () => {
 
           {/* User Info Section */}
           <div className="pt-6 border-t border-gray-200 dark:border-gray-700">
-            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">Your Information</h3>
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">
+              Your Information
+            </h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {/* User Email (Read-only) */}
               <div>
-                <label htmlFor="userEmail" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                <label
+                  htmlFor="userEmail"
+                  className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+                >
                   Email
                 </label>
                 <input
@@ -288,7 +357,10 @@ const ShareGardenTip = () => {
 
               {/* User Name (Read-only) */}
               <div>
-                <label htmlFor="userName" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+                <label
+                  htmlFor="userName"
+                  className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+                >
                   Name
                 </label>
                 <input
@@ -311,16 +383,41 @@ const ShareGardenTip = () => {
           >
             {isSubmitting ? (
               <>
-                <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
-                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                <svg
+                  className="animate-spin h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                  ></path>
                 </svg>
                 Submitting...
               </>
             ) : (
               <>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                  />
                 </svg>
                 Submit Garden Tip
               </>

@@ -2,7 +2,7 @@ import React, { use } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 import { toast } from "react-toastify";
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { logIn, googleSignIn } = use(AuthContext);
@@ -52,9 +52,18 @@ const Login = () => {
       <div className="w-full max-w-md">
         {/* Header */}
         <div className="text-center mb-8">
-          <Link to="/" className="inline-flex items-center justify-center gap-2 mb-4 group">
-          <img className="w-8 h-8" src="https://cdn-icons-png.flaticon.com/128/8757/8757837.png" alt="GardenHub Logo" />
-            <span className="text-2xl font-bold text-green-600 dark:text-green-400">GardenHub</span>
+          <Link
+            to="/"
+            className="inline-flex items-center justify-center gap-2 mb-4 group"
+          >
+            <img
+              className="w-8 h-8"
+              src="https://cdn-icons-png.flaticon.com/128/8757/8757837.png"
+              alt="GardenHub Logo"
+            />
+            <span className="text-2xl font-bold text-green-600 dark:text-green-400">
+              GardenHub
+            </span>
           </Link>
           <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-2">
             Welcome Back
@@ -69,7 +78,10 @@ const Login = () => {
           <form onSubmit={handleLogin} className="space-y-5">
             {/* Email Field */}
             <div>
-              <label htmlFor="email" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+              <label
+                htmlFor="email"
+                className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+              >
                 Email Address
               </label>
               <input
@@ -84,7 +96,10 @@ const Login = () => {
 
             {/* Password Field */}
             <div>
-              <label htmlFor="password" className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
+              <label
+                htmlFor="password"
+                className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2"
+              >
                 Password
               </label>
               <input
@@ -117,7 +132,9 @@ const Login = () => {
           {/* Divider */}
           <div className="flex items-center my-6">
             <div className="flex-1 h-px bg-gray-300 dark:bg-gray-600"></div>
-            <span className="px-4 text-sm text-gray-500 dark:text-gray-400">Or continue with</span>
+            <span className="px-4 text-sm text-gray-500 dark:text-gray-400">
+              Or continue with
+            </span>
             <div className="flex-1 h-px bg-gray-300 dark:bg-gray-600"></div>
           </div>
 

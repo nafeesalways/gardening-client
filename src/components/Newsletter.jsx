@@ -1,40 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const Newsletter = () => {
   const [openFAQ, setOpenFAQ] = useState(0);
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
 
   const faqs = [
     {
       id: 1,
       question: "How do I start a vegetable garden?",
-      answer: "Begin by choosing a sunny location (6-8 hours of sunlight), prepare the soil with compost, and plant seeds or seedlings appropriate for your climate zone. Our planting calendar tool can help you choose the right plants for your region.",
+      answer:
+        "Begin by choosing a sunny location (6-8 hours of sunlight), prepare the soil with compost, and plant seeds or seedlings appropriate for your climate zone. Our planting calendar tool can help you choose the right plants for your region.",
     },
     {
       id: 2,
       question: "What's the best time to prune plants?",
-      answer: "Most plants are best pruned in late winter or early spring before new growth begins. However, it varies by plant type. Refer to our plant-specific guides on GardenHub for detailed pruning schedules.",
+      answer:
+        "Most plants are best pruned in late winter or early spring before new growth begins. However, it varies by plant type. Refer to our plant-specific guides on GardenHub for detailed pruning schedules.",
     },
     {
       id: 3,
       question: "How often should I water my garden?",
-      answer: "Most plants need 1-2 inches of water per week. However, it depends on soil type, weather, and plant species. Use our Soil Tester Kit to check moisture levels. Generally, water deeply but less frequently to encourage deeper root growth.",
+      answer:
+        "Most plants need 1-2 inches of water per week. However, it depends on soil type, weather, and plant species. Use our Soil Tester Kit to check moisture levels. Generally, water deeply but less frequently to encourage deeper root growth.",
     },
     {
       id: 4,
       question: "What should I do about garden pests?",
-      answer: "Start with organic methods like companion planting, hand-picking pests, and neem oil spray. Our community section has gardeners who can help identify pests and suggest solutions tailored to your situation.",
+      answer:
+        "Start with organic methods like companion planting, hand-picking pests, and neem oil spray. Our community section has gardeners who can help identify pests and suggest solutions tailored to your situation.",
     },
     {
       id: 5,
       question: "How can I improve my soil quality?",
-      answer: "Add organic matter like compost, aged manure, or leaf mulch regularly. Use our Soil Tester Kit to monitor pH levels. Avoid bare soil by planting cover crops or using mulch, which also helps with moisture retention.",
+      answer:
+        "Add organic matter like compost, aged manure, or leaf mulch regularly. Use our Soil Tester Kit to monitor pH levels. Avoid bare soil by planting cover crops or using mulch, which also helps with moisture retention.",
     },
     {
       id: 6,
       question: "Is composting difficult for beginners?",
-      answer: "Not at all! Composting is simple: collect brown materials (leaves), green materials (food scraps), keep it moist, and turn occasionally. Our composting guide provides step-by-step instructions for quick results.",
+      answer:
+        "Not at all! Composting is simple: collect brown materials (leaves), green materials (food scraps), keep it moist, and turn occasionally. Our composting guide provides step-by-step instructions for quick results.",
     },
   ];
 
@@ -42,7 +48,7 @@ const Newsletter = () => {
     e.preventDefault();
     if (email) {
       setSubscribed(true);
-      setEmail('');
+      setEmail("");
       setTimeout(() => setSubscribed(false), 3000);
     }
   };
@@ -56,21 +62,31 @@ const Newsletter = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Grid - FAQ and Newsletter */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
-          
           {/* FAQ Section */}
           <div>
             {/* FAQ Header */}
             <div className="mb-8">
               <div className="inline-flex items-center justify-center w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-full mb-4">
-                <svg className="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg
+                  className="w-6 h-6 text-blue-600 dark:text-blue-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
                 </svg>
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-gray-100 mb-3">
                 Frequently Asked Questions
               </h2>
               <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
-                Find answers to common gardening questions and get started with confidence
+                Find answers to common gardening questions and get started with
+                confidence
               </p>
             </div>
 
@@ -91,7 +107,7 @@ const Newsletter = () => {
                     </span>
                     <svg
                       className={`w-5 h-5 text-blue-600 dark:text-blue-400 flex-shrink-0 ml-3 transition-transform duration-300 ${
-                        openFAQ === faq.id ? 'rotate-180' : ''
+                        openFAQ === faq.id ? "rotate-180" : ""
                       }`}
                       fill="none"
                       stroke="currentColor"
@@ -124,15 +140,26 @@ const Newsletter = () => {
             {/* Newsletter Header */}
             <div className="mb-8">
               <div className="inline-flex items-center justify-center w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-full mb-4">
-                <svg className="w-6 h-6 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                <svg
+                  className="w-6 h-6 text-green-600 dark:text-green-400"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
                 </svg>
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-gray-100 mb-3">
                 Stay Updated
               </h2>
               <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base">
-                Get weekly gardening tips, seasonal planting guides, and exclusive community insights delivered to your inbox
+                Get weekly gardening tips, seasonal planting guides, and
+                exclusive community insights delivered to your inbox
               </p>
             </div>
 
@@ -163,7 +190,9 @@ const Newsletter = () => {
                       defaultChecked
                       className="radio radio-sm radio-green"
                     />
-                    <span className="text-sm text-gray-700 dark:text-gray-300">Weekly digest</span>
+                    <span className="text-sm text-gray-700 dark:text-gray-300">
+                      Weekly digest
+                    </span>
                   </label>
                   <label className="flex items-center gap-3 cursor-pointer p-2 rounded hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
                     <input
@@ -172,7 +201,9 @@ const Newsletter = () => {
                       value="monthly"
                       className="radio radio-sm radio-green"
                     />
-                    <span className="text-sm text-gray-700 dark:text-gray-300">Monthly summary</span>
+                    <span className="text-sm text-gray-700 dark:text-gray-300">
+                      Monthly summary
+                    </span>
                   </label>
                 </div>
               </div>
@@ -182,8 +213,18 @@ const Newsletter = () => {
                 type="submit"
                 className="w-full btn bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white font-bold py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 border-none flex items-center justify-center gap-2"
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                <svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                  />
                 </svg>
                 Subscribe Now
               </button>
@@ -193,8 +234,16 @@ const Newsletter = () => {
             {subscribed && (
               <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4 mb-6 animate-fadeIn">
                 <div className="flex items-center gap-3">
-                  <svg className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <svg
+                    className="w-5 h-5 text-green-600 dark:text-green-400 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                   <p className="text-sm font-semibold text-green-700 dark:text-green-400">
                     Successfully subscribed!.
@@ -210,27 +259,57 @@ const Newsletter = () => {
               </p>
               <ul className="space-y-3">
                 <li className="flex items-start gap-3 text-sm">
-                  <svg className="w-4 h-4 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <svg
+                    className="w-4 h-4 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
                   </svg>
-                  <span className="text-gray-700 dark:text-gray-300">Weekly gardening tips & guides</span>
+                  <span className="text-gray-700 dark:text-gray-300">
+                    Weekly gardening tips & guides
+                  </span>
                 </li>
                 <li className="flex items-start gap-3 text-sm">
-                  <svg className="w-4 h-4 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <svg
+                    className="w-4 h-4 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
                   </svg>
-                  <span className="text-gray-700 dark:text-gray-300">Seasonal planting schedules</span>
+                  <span className="text-gray-700 dark:text-gray-300">
+                    Seasonal planting schedules
+                  </span>
                 </li>
                 <li className="flex items-start gap-3 text-sm">
-                  <svg className="w-4 h-4 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  <svg
+                    className="w-4 h-4 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                      clipRule="evenodd"
+                    />
                   </svg>
-                  <span className="text-gray-700 dark:text-gray-300">Exclusive community updates</span>
+                  <span className="text-gray-700 dark:text-gray-300">
+                    Exclusive community updates
+                  </span>
                 </li>
               </ul>
             </div>
           </div>
-        </div> 
+        </div>
       </div>
 
       {/* CSS for animations */}

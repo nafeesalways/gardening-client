@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 import garden from "../garden.json";
 import Lottie from "lottie-react";
-import { Link } from 'react-router';
+import { Link } from "react-router";
 
 const ErrorPage = () => {
   return (
-       <div className="flex items-center justify-center min-h-screen px-4">
+    <div className="flex items-center justify-center min-h-screen px-4">
       <div className="flex flex-col md:flex-row items-center gap-10 max-w-4xl bg-white shadow-lg rounded-lg p-6">
         {/* Left: Image */}
-          <div id="garden-lottie">
+        <div id="garden-lottie">
           <Lottie
             animationData={garden}
             loop={true}

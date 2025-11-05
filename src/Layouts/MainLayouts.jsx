@@ -8,16 +8,16 @@ import Container from "../components/Container";
 const MainLayouts = () => {
   return (
     <div>
-     
       <Header></Header>
-
+  
       <div>
-        <Outlet></Outlet>
+        <Container>
+          <Outlet></Outlet>
+        </Container>
       </div>
       <footer className="mt-6">
         <Footer></Footer>
       </footer>
-   
     </div>
   );
 };

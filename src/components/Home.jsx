@@ -9,6 +9,7 @@ import "react-tooltip/dist/react-tooltip.css";
 import { Helmet } from "react-helmet-async";
 import BlogSection from "./BlogSection";
 import Newsletter from "./Newsletter";
+import Container from "./Container";
 
 const Home = () => {
   return (
@@ -20,26 +21,38 @@ const Home = () => {
         <Banner></Banner>
       </section>
 
-      <section>
-        <FeaturedGarden></FeaturedGarden>
+      <section className="mt-6">
+      
+          <FeaturedGarden></FeaturedGarden>
+       
       </section>
 
       <section className="mt-6">
-        <TrendingTips></TrendingTips>
+      
+          <TrendingTips></TrendingTips>
+  
       </section>
       <section className="mt-6">
-        <BlogSection></BlogSection>
+    
+          <BlogSection></BlogSection>
+       
       </section>
       <section className="mt-6">
-        <Newsletter></Newsletter>
+      
+          <Newsletter></Newsletter>
+        
       </section>
 
       <section className="mt-6">
-        <Tools></Tools>
+     
+          <Tools></Tools>
+     
       </section>
 
       <section className="mt-6">
-        <Reviews></Reviews>
+     
+          <Tools></Tools>
+        
       </section>
     </div>
   );

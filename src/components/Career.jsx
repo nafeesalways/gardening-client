@@ -9,7 +9,8 @@ const Career = () => {
       id: 1,
       title: "Content Writer",
       type: "Remote",
-      description: "Write engaging blog posts and gardening tips for our community.",
+      description:
+        "Write engaging blog posts and gardening tips for our community.",
     },
     {
       id: 2,
@@ -21,7 +22,8 @@ const Career = () => {
       id: 3,
       title: "Community Manager",
       type: "Full-Time",
-      description: "Engage with users, manage discussions, and organize events.",
+      description:
+        "Engage with users, manage discussions, and organize events.",
     },
   ];
 
@@ -32,10 +34,13 @@ const Career = () => {
 
   return (
     <section className="px-4 md:px-10 lg:px-20 py-10 text-green-900">
-      <h2 className="text-4xl font-bold text-green-800 mb-6 text-center">🌿 Careers at GardenHub</h2>
+      <h2 className="text-4xl font-bold text-green-800 mb-6 text-center">
+        🌿 Careers at GardenHub
+      </h2>
       <p className="text-center text-green-700 max-w-2xl mx-auto mb-12">
-        Help us grow the world greener. We’re always looking for passionate people who want to 
-        make a difference through sustainable gardening, technology, and community.
+        Help us grow the world greener. We’re always looking for passionate
+        people who want to make a difference through sustainable gardening,
+        technology, and community.
       </p>
 
       {/* Open Roles */}
@@ -45,7 +50,9 @@ const Career = () => {
             key={role.id}
             className="bg-white rounded-xl border border-green-200 p-6 shadow-sm hover:shadow-lg transition"
           >
-            <h3 className="text-xl font-semibold text-green-900">{role.title}</h3>
+            <h3 className="text-xl font-semibold text-green-900">
+              {role.title}
+            </h3>
             <p className="text-sm text-green-600">{role.type}</p>
             <p className="mt-3 text-green-700">{role.description}</p>
             <button
@@ -99,8 +106,13 @@ const Career = () => {
       {/* Submission Success Message */}
       {submitted && (
         <div className="text-center mt-10 bg-green-100 p-6 rounded-xl max-w-xl mx-auto">
-          <h4 className="text-xl font-semibold text-green-800">🎉 Application Submitted!</h4>
-          <p className="text-green-700 mt-2">Thank you for applying for the {selectedPosition} role. We’ll be in touch soon!</p>
+          <h4 className="text-xl font-semibold text-green-800">
+            🎉 Application Submitted!
+          </h4>
+          <p className="text-green-700 mt-2">
+            Thank you for applying for the {selectedPosition} role. We’ll be in
+            touch soon!
+          </p>
         </div>
       )}
     </section>

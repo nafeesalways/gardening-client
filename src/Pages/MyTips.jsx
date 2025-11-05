@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useLoaderData } from "react-router";
 import TipChart from "./TipChart";
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from "react-helmet-async";
 
 const MyTips = () => {
   const data = useLoaderData();
@@ -15,7 +15,9 @@ const MyTips = () => {
 
   // Handler to remove a tip after successful deletion
   const handleTipDeleted = (deletedId) => {
-    setFilteredTips(oldTips => oldTips.filter(tip => tip._id !== deletedId));
+    setFilteredTips((oldTips) =>
+      oldTips.filter((tip) => tip._id !== deletedId)
+    );
   };
 
   return (
@@ -24,7 +26,11 @@ const MyTips = () => {
         <title>GardenHub | My Tips</title>
       </Helmet>
       <div className="p-6">
-        <TipChart tips={filteredTips} users={users} onDelete={handleTipDeleted} />
+        <TipChart
+          tips={filteredTips}
+          users={users}
+          onDelete={handleTipDeleted}
+        />
       </div>
     </div>
   );
